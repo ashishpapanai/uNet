@@ -1,4 +1,3 @@
-import imp
 import torch
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
@@ -11,16 +10,16 @@ from utils import (load_checkpoint, save_checkpoint, get_loaders, check_accuracy
 # Hyperparameters
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 32
-NUM_EPOCHS = 100
+NUM_EPOCHS = 10
 NUM_WORKERS = 2
 IMAGE_HEIGHT = 160  # 1280 Org.
 IMAGE_WIDTH = 240  # 1918 Org.
 PIN_MEMORY = True
-LOAD_MODEL = True
-TRAIN_IMG_DIR = "data/train_images"
-TRAIN_MASK_DIR = "data/train_masks"
-VAL_IMG_DIR = "data/val_images"
-VAL_MASK_DIR = "data/val_masks"
+LOAD_MODEL = False
+TRAIN_IMG_DIR = r".\data\train_images"
+TRAIN_MASK_DIR = r".\data\train_masks"
+VAL_IMG_DIR = r".\data\val_images"
+VAL_MASK_DIR = r".\data\val_masks"
 LEARNING_RATE = 1e-4
 
 

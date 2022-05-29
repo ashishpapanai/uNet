@@ -1,9 +1,6 @@
-import imp
 import os
-from re import S
 import numpy as np
 from PIL import Image
-from numpy import float256, imag
 from torch.utils.data import Dataset
 
 
@@ -12,15 +9,18 @@ class CarvanaDataset(Dataset):
         self.image_dir = image_dir
         self.mask_dir = mask_dir
         self.transform = transform
-        self.images = os.listdir()
+        self.images = os.listdir(image_dir)
 
     def __len__(self):
         return len(self.images)
 
     def __getitem__(self, idx):
         img_path = os.path.join(self.image_dir, self.images[idx])
+        #rint(self.images)
+        #print(img_path)
         mask_path = os.path.join(
-            self.image_dir, self.images[idx].replace(".jpg", "_mask.gif"))
+            self.mask_dir, self.images[idx].replace(".jpg", "_mask.gif"))
+        #print(mask_path)
         image = np.array(Image.open(img_path).convert('RGB'))
         mask = np.array(Image.open(mask_path).convert(
             'L'), dtype=np.float32)  # convert to grayscale
@@ -31,4 +31,4 @@ class CarvanaDataset(Dataset):
             image = augmentations['image']
             mask = augmentations['mask']
     
-    
+

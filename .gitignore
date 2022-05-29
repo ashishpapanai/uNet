@@ -1,5 +1,7 @@
 /data
+/data2
 carvana-image-masking-challenge.zip
+carvana-image-masking-challenge
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
