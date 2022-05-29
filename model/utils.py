@@ -4,7 +4,7 @@ from dataset import CarvanaDataset
 from torch.utils.data import DataLoader
 
 
-def save_checkpoint(state, filename="my_checkpoint.pth.tar"):
+def save_checkpoint(state, filename="checkpoint.pth.tar"):
     print("=> Saving checkpoint")
     torch.save(state, filename)
 
